@@ -1,0 +1,117 @@
+/* suggestions */
+#searchSuggestionsWrapper {
+    width: 100% !important;
+    position: absolute !important;
+    top: 100% !important; 
+    bottom: auto !important; 
+    left: 0 !important;
+    
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08) !important;
+    background-color: #ffffff !important;
+    margin-top: 6px !important; 
+    z-index: 9999 !important;
+    overflow: hidden !important; 
+}
+
+/* 💻 DESKTOP SCALING WIDENER
+   When on laptop/desktop views, stretch the dropdown card to cover the empty space under the search button */
+@media (min-width: 768px) {
+    #searchSuggestionsWrapper {
+        width: calc(100% + 200px) !important; /* Extends rightward to align under the 'Search' button perfectly */
+    }
+}
+
+/* If you want it to be 100% clean on wide screens but adaptive, we can use this fallback too */
+@media (max-width: 576px) {
+    #searchSuggestionsWrapper {
+        /* On tiny phones, it will gracefully match the available viewport wrapper */
+        width: calc(100% + 90px) !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    #searchSuggestionsWrapper {
+        width: calc(100% + 250px) !important; /* Extends rightward to align under the 'Search' button perfectly */
+    }
+}
+
+/* --- ➡️ MASTER SCROLL ENGINE (VERTICAL & HORIZONTAL) --- */
+#suggestionsInnerScroll {
+    max-height: 260px !important;
+    overflow-y: auto !important;
+    overflow-x: auto !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    
+    padding-top: 8px !important;
+    padding-bottom: 16px !important; /* Muted spacing to account for a thinner scrollbar */
+    
+    -webkit-overflow-scrolling: touch !important; 
+}
+
+/* --- SUGGESTION ROW ITEMS --- */
+#searchSuggestionsWrapper .suggestion-item {
+    padding: 12px 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.02);
+    transition: background-color 0.15s ease, color 0.15s ease !important;
+    
+    white-space: nowrap !important;
+    width: max-content !important; 
+    min-width: 100% !important;   
+}
+
+/* Remove border on the very last suggestion link item */
+#searchSuggestionsWrapper .suggestion-item:last-child {
+    border-bottom: none;
+}
+
+/* --- HOVER & FOCUS INTERACTION STATES --- */
+#searchSuggestionsWrapper .suggestion-item:hover,
+#searchSuggestionsWrapper .suggestion-item:focus {
+    background-color: #f7f7f7 !important;
+    color: #ff2c3a !important;
+}
+
+/* --- CUSTOM ICON ADJUSTMENTS --- */
+#searchSuggestionsWrapper .suggestion-item i {
+    font-size: 1.1rem !important;
+    margin-right: 14px !important;
+    width: 24px !important;
+    text-align: center !important;
+    color: #717171 !important;
+    transition: color 0.15s ease !important;
+    flex-shrink: 0 !important;
+}
+
+#searchSuggestionsWrapper .suggestion-item:hover i {
+    color: #ff2c3a !important;
+}
+
+/* --- NO RESULTS FALLBACK DISPLAY --- */
+#searchSuggestionsWrapper .dropdown-item.text-muted {
+    font-size: 1.1rem !important;
+    padding: 16px 20px !important;
+    color: #717171 !important;
+    white-space: nowrap !important;
+}
+
+/* --- 🪶 CLEAN, ULTRA-THIN SCROLLBAR SYSTEM STYLING --- */
+#suggestionsInnerScroll::-webkit-scrollbar {
+    width: 4px !important;  /* Made ultra-thin vertically */
+    height: 4px !important; /* Made ultra-thin horizontally (X-direction) */
+}
+#suggestionsInnerScroll::-webkit-scrollbar-track {
+    background: transparent !important; 
+}
+#suggestionsInnerScroll::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.12) !important; /* Softer, less intrusive color */
+    border-radius: 10px !important;            
+}
+#suggestionsInnerScroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.25) !important; 
+}

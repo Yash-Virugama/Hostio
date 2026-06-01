@@ -1,0 +1,298 @@
+/* ==========================================================================
+   STATIONARY TOP-NAVBAR SEARCH BAR MECHANICS (< 768px)
+   ========================================================================== */
+
+@media (max-width: 768px) {
+
+    /* 1. LOCK the navbar to a rigid height so it cannot change size or shift items */
+    .navbar {
+        height: 5rem !important;
+        position: relative !important;
+        padding: 0 !important;
+    }
+
+    /* 2. Clean fluid container row running dynamic spacing algorithms */
+    .container-fluid {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        height: 100% !important;
+        padding: 0 1rem !important;
+        gap: 0.75rem !important;
+    }
+
+    /* 3. BRAND LOGO - Positioned first on the left */
+    .navbar-brand {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        z-index: 1020 !important;
+        flex: 0 0 auto !important;
+        order: 1 !important;
+        /* ✅ Forces Logo to be 1st */
+    }
+
+    #map {
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+    }
+
+
+
+    @media (max-width: 768px) {
+        /* ... (Keep your 1. navbar, 2. container-fluid, and 3. navbar-brand sections exactly as they are) ... */
+
+        /* 4. DYNAMIC CENTER SEARCH BAR - Stays locked in the middle */
+        @media (min-width: 300px) {
+            .navbar-nav:not(#navbarNavAltMarkup .navbar-nav) {
+                position: relative !important;
+                left: auto !important;
+                right: auto !important;
+                top: auto !important;
+                transform: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                z-index: 1010 !important;
+                display: block !important;
+                flex: 1 1 auto !important;
+                width: auto !important;
+                max-width: 100% !important;
+                order: 2 !important;
+                /* Forces Search Bar to stay 2nd (Center) */
+            }
+
+            /* FORCE STRICT HORIZONTAL FLEX ROW FLOW AT ALL TIMES */
+            .navbar-nav:not(#navbarNavAltMarkup .navbar-nav) form {
+                display: flex !important;
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                width: 100% !important;
+                align-items: center !important;
+            }
+
+            /* ✅ TARGET THE NEW INNER WRAPPER CORRECTLY */
+            .navbar-nav:not(#navbarNavAltMarkup .navbar-nav) form .search-wrapper-div {
+                flex: 1 1 auto !important;
+                display: block !important;
+                width: 100% !important;
+                /* Changed from 1% to 100% to fill available space */
+            }
+
+            .search-inp {
+                width: 100% !important;
+                height: 38px !important;
+                font-size: 0.8rem !important;
+                padding: 0.5rem 0.5rem 0.5rem 0.75rem;
+            }
+
+            /* Ensure the button maintains its shape layout */
+            .search-btn {
+                height: 38px !important;
+                margin-left: 8px !important;
+                white-space: nowrap !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex: 0 0 auto !important;
+                gap: 0rem;
+            }
+
+            /* --- 📱 SCREEN SIZE BETWEEN 300px AND 449px: Icon Only Mode --- */
+            @media (max-width: 449px) {
+                .search-btn {
+                    font-size: 0px !important;
+                    width: 38px !important;
+                    min-width: 38px !important;
+                    padding: 0 !important;
+                    margin-right: 0px !important;
+                }
+
+                .search-btn i {
+                    font-size: 0.95rem !important;
+                    display: inline-block !important;
+                    margin: 0 !important;
+                }
+            }
+
+            /* --- 📑 SCREEN SIZE BETWEEN 450px AND 768px: Show "Search" Text --- */
+            @media (min-width: 450px) {
+                .search-btn {
+                    font-size: 0.8rem !important;
+                    padding: 0 12px !important;
+                    width: auto !important;
+                    min-width: auto !important;
+                    margin-right: 0px !important;
+                }
+
+                .search-btn i {
+                    font-size: 0.85rem !important;
+                    margin-right: 4px !important;
+                }
+            }
+        }
+
+        /* ... (Keep your 5. navbar-toggler, 6. #navbarNavAltMarkup, and filter track rules below the same) ... */
+    }
+
+    /* 5. TOGGLE BUTTON - Shifted completely to the right side */
+    .navbar-toggler {
+        position: relative !important;
+        right: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 0 !important;
+        z-index: 1020 !important;
+        flex: 0 0 auto !important;
+        order: 3 !important;
+        height: 38px;
+        /* ✅ Forces Toggle Button to be 3rd (Far Right) */
+    }
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+    
+/* 1. DEFAULT/CLOSED STATE (aria-expanded="false" or not set yet) */
+.navbar-toggler i.fa-outdent {
+    font-size: 1.3rem !important;
+    color: #000000 !important;
+    opacity: 0.7;
+    display: inline-block !important;
+    transform: rotate(-90deg) !important; 
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), color 0.15s ease !important;
+}
+
+/* 2. OPENED STATE (Triggers instantly when Bootstrap sets aria-expanded="true") */
+.navbar-toggler[aria-expanded="true"] i.fa-outdent {
+    color: #ff2c3a !important; 
+    transform: rotate(90deg) !important;
+    opacity: 1; 
+}
+
+    /* 6. INDEPENDENT LAYER DROPDOWN LINKS MENU */
+    #navbarNavAltMarkup {
+        position: absolute !important;
+        top: 5rem !important;
+        left: 0 !important;
+        width: 100% !important;
+        background-color: #ffffff !important;
+        z-index: 1000 !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    #navbarNavAltMarkup.show {
+        display: block !important;
+        padding-top: 0.5rem !important;
+        padding-bottom: 1rem !important;
+    }
+
+    #navbarNavAltMarkup .navbar-nav.ms-auto {
+        flex-direction: column !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #navbarNavAltMarkup .nav-link {
+        width: 100% !important;
+        display: block !important;
+        padding: 12px 20px !important;
+        margin: 0 !important;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+        text-align: left !important;
+    }
+}
+
+
+
+/* ==========================================================================
+   RESPONSIVE SCROLLBAR LAYOUT BREAKPOINTS (< 992px)
+   ========================================================================== */
+
+@media (max-width: 1200px) {
+    #filters {
+        flex-direction: column !important;
+        /* Stacks filter track and tax toggle switch */
+        align-items: stretch !important;
+        gap: 1.2rem;
+        padding: 0.5rem 0.75rem;
+        width: 100% !important;
+        overflow: hidden !important;
+    }
+
+    /* @media (min-width: 768px) {
+    .search-inp {
+        width: 25vw;
+    }
+} */
+
+    /* Enables horizontal overflow scroll track */
+    .filter-box {
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch !important;
+        /* Smooth momentum scrolling on mobile devices */
+        width: 100% !important;
+        padding-bottom: 12px !important;
+        /* Creates buffer gap so track doesn't overlay text descriptions */
+    }
+
+    /* ✅ SLEEK MINIMALIST SCROLLBAR INDICATOR TRAIL */
+    .filter-box::-webkit-scrollbar {
+        display: block !important;
+        /* Forces scrollbar track initialization visibility */
+        height: 5px !important;
+        /* Sleek thickness style profiles */
+    }
+
+    .filter-box::-webkit-scrollbar-track {
+        background: #f1f1f1 !important;
+        /* Very soft background track lane */
+        border-radius: 10px !important;
+    }
+
+    .filter-box::-webkit-scrollbar-thumb {
+        background: #dee2e6 !important;
+        /* Default grey color indicator pill block */
+        border-radius: 10px !important;
+        transition: background 0.2s ease;
+    }
+
+    .filter-box::-webkit-scrollbar-thumb:hover {
+        background: #ff2c3a !important;
+        /* Changes to brand red when grabbed/hovered */
+    }
+
+    /* Fallback configurations for Firefox scroll architectures */
+    .filter-box {
+        scrollbar-width: thin !important;
+        scrollbar-color: #dee2e6 #f1f1f1 !important;
+    }
+
+    .tax-toggle {
+        width: 100% !important;
+        justify-content: space-between !important;
+        height: 3rem;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1300px) {
+    .search-inp {
+        width: 25vw;
+    }
+}
+
+@media (min-width: 769px) {
+    .search-btn {
+        height: 100%;
+        margin-left: 8px !important;
+    }
+}

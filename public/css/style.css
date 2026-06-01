@@ -1,0 +1,562 @@
+
+body {
+    font-family: "Plus Jakarta Sans", sans-serif !important;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: hidden;
+    
+}
+
+.container {
+    flex: 1;
+    
+    overflow-x: hidden;
+overflow-y: auto;
+   
+
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+}
+
+/* navbar  */
+.navbar {
+    height: 5rem;
+    background-color: white;
+    
+}
+
+.fa-compass {
+    color: #ff2c3a;
+    font-size: 2rem;
+}
+
+.nav-link {
+    color: #222222 !important;
+    font-weight: 430;
+    margin-right: 0.5rem !important;
+}
+
+.nav-link:hover {
+    /* text-decoration: underline; */
+    color: #ff2c3a !important;
+}
+
+.active {
+    color: #ff2c3a !important;
+    /* text-decoration: underline; */
+}
+
+.search-inp {
+    border-radius: 25px;
+    font-size: 0.8rem;
+    padding: 0.5rem 3rem 0.5rem 0.75rem;
+    width: 20vw;
+}
+
+.search-btn {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    gap: 0.3rem;
+    padding: 0 1rem 0 1rem;
+    width: auto !important;
+    margin-left: 0 !important;
+}
+
+/* Removes the default clear "X" button from search inputs */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+}
+
+/* filters */
+#filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 0.5rem 1rem;
+    gap: 1.5rem;
+}
+
+.filter-box {
+    display: flex !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important; /* 🚫 Prevents layout items from wrapping to a second line */
+    gap: 2.2rem;
+    flex-grow: 1;
+}
+
+.filter-link {
+    text-decoration: none;
+    color: #212529;
+}
+
+.filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0.6rem 0;
+    opacity: 0.65;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.filter:hover {
+    opacity: 1;
+    color: #ff2c3a;
+}
+
+.filter i {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.filter p {
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin: 0;
+    white-space: nowrap !important; /* Forces "Iconic Cities" to stay on one line */
+}
+
+.active-filter .filter {
+    color: #ff2c3a !important;
+    border-bottom: 2px solid #ff2c3a;
+    opacity: 1 !important;
+}
+
+/* Premium Tax Toggle Pill Box */
+.tax-toggle {
+    border: 1px solid #dee2e6;
+    border-radius: 1rem;
+    height: 3.2rem;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    background-color: #ffffff;
+    transition: box-shadow 0.2s ease;
+    flex-shrink: 0;
+}
+
+.tax-toggle:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tax-toggle span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    opacity: 0.8;
+}
+
+/* Form Switch Alignment Fixes */
+.form-check-reverse {
+    display: flex !important;
+    align-items: center !important;
+    gap: 0.75rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.form-check-reverse .form-check-input {
+    margin: 0 !important;
+    float: none !important;
+}
+
+#flexSwitchCheckDefault {
+    width: 2.25rem;
+    height: 1.25rem;
+    border-color: #ff2c3a;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ff2c3a'/%3e%3c/svg%3e");
+    cursor: pointer;
+}
+
+#flexSwitchCheckDefault:checked {
+    background-color: #ff2c3a;
+    box-shadow: none;
+    border: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ffffff'/%3e%3c/svg%3e");
+}
+
+#flexSwitchCheckDefault:focus:not(:checked) {
+    border-color: #ff2c3a;
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23ff2c3a'/%3e%3c/svg%3e");
+}
+
+.tax-info {
+    display: none;
+    margin-left: 6px;
+    color: #ff2c3a;
+}
+
+
+/* footer  */
+.f-info {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: 8rem;
+    background-color: #ebebeb;
+    text-align: center;
+    place-items: center;
+}
+
+.f-info-socials {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.f-info-socials i {
+    color: #ff2c3a;
+    font-size: 1.2rem;
+}
+
+.f-info-socials i:hover {
+    cursor: pointer;
+}
+
+.f-info-brand {
+    color: #ff2c3a;
+    ;
+}
+
+.f-info-links {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #ff2c3a;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+/* cards */
+.card {
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top {
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.10);
+}
+
+.card-body {
+    padding: 0.3rem !important;
+    /* padding-left: 0.1rem; */
+}
+
+.card-text p {
+    font-weight: 400 !important;
+}
+
+.listing-link {
+    color: #222222;
+    text-decoration: none;
+}
+
+.listing-link:hover {
+    color: #222222 !important;
+    text-decoration: none;
+}
+
+.card-img-overlay:hover {
+    opacity: 0.2;
+    background-color: white;
+}
+
+/* add, edit listing form */
+.add-listing-form {
+    padding: 1rem 0 1rem 0;
+}
+
+.red-btn {
+    background-color: #ff2c3a !important;
+    border: none !important;
+    color: white;
+    width: 100%;
+}
+
+.clear-btn {
+    width: auto !important;
+}
+
+.red-btn:hover {
+    background-color: #ff2c3ac6 !important;
+    border: none !important;
+    color: white !important;
+}
+
+.form-control:focus {
+    border-color: #ff2c3a !important;
+    outline: 0 !important;
+    box-shadow: none !important;
+}
+
+.edit-form-image {
+    border-radius: 0.5rem;
+    /* border: 0.09rem solid #ff2c3a; */
+}
+
+/* category option in form */
+.category-dropdown-btn {
+    border-color: #dee2e6;
+}
+
+.category-dropdown-btn:hover {
+    border-color: #dee2e6;
+}
+
+.category-dropdown-btn:focus {
+    border-color: #ff2c3a !important;
+}
+
+.category-dropdown-btn:active,
+.category-dropdown-btn.show {
+    border-color: #ff2c3a !important;
+}
+
+.category-dropdown-menu {
+    border: none;
+    border-radius: 18px;
+    padding: 10px;
+    margin-top: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+    animation: dropdownSlide 0.4s ease-in-out;
+    overflow: hidden;
+}
+
+@keyframes dropdownSlide {
+    from {
+        max-height: 0px;       /* Starts completely closed */
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    to {
+        max-height: 500px;     /* Smoothly unfolds to its natural size boundary */
+    }
+}
+
+.category-dropdown-menu .dropdown-item {
+    padding: 12px 14px;
+    border-radius: 12px;
+
+    font-size: 1rem;
+    font-weight: 500;
+
+    transition: all 0.2s ease;
+}
+
+.category-dropdown-menu .dropdown-item:hover {
+    background-color: #fff1f2;
+    color: #ff2c3a;
+
+    transform: translateX(4px);
+}
+
+/* show listing  */
+.show-card {
+    margin-bottom: 0 !important;
+}
+
+.show-img {
+    height: auto;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+.show-ul {
+    list-style: none;
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+}
+
+.show-ul li {
+    margin-bottom: 1rem;
+}
+
+.owner-name {
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 1.25rem;
+    color: #ff2c3a;
+    /* text-decoration: underline #ff2c3a; */
+}
+
+.variables {
+    color: #000000;
+    font-weight: 700;
+}
+
+.btn:focus,
+.btn:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.fa-angle-left {
+    color: #ff2c3a;
+}
+
+.fa-angle-left:hover{
+    color: #ff2c3ac6;
+}
+
+/* for flash-message */
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+    border: none;
+}
+
+/* REVIEW CARD */
+
+.review-card {
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 0 !important;
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.08);
+
+    transition: all 0.3s ease;
+
+    background: #fff;
+}
+
+/* Hover */
+.review-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* HEADER */
+
+.review-header {
+    background: white;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.2rem;
+}
+
+/* keeps same alignment */
+
+.delete-btn-wrapper {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-trash {
+font-size: 1.5rem;
+}
+
+/* USER */
+
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    color: #222;
+}
+
+.review-user i {
+    font-size: 2.3rem;
+    color: #ff385c;
+}
+
+
+/* COMMENT */
+
+.review-comment {
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #444;
+
+    margin-bottom: 0;
+}
+
+
+/* DELETE BUTTON */
+
+.delete-review-btn {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff0f3;
+    color: #ff2c3a;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.delete-review-btn:hover {
+    background: #ff2c3a;
+    color: white;
+    transform: scale(1.08);
+}
+
+/* STAR RATING */
+
+.starability-result {
+    margin: 0;
+}
+
+
+
+/* Target the main browser scrollbar window */
+html::-webkit-scrollbar {
+    width: 10px !important; /* Slimmer and more modern than default browser tracks */
+}
+
+/* Make the background track transparent so it doesn't leave a grey line through the footer */
+html::-webkit-scrollbar-track {
+    background: transparent !important; 
+}
+
+/* Style the moving handle pill to float cleanly on the right edge */
+html::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.22) !important; /* Soft, transparent charcoal */
+    background-clip: padding-box !important;   /* Keeps the color confined within padding boundaries */
+    border: 2px solid transparent !important;   /* Pushes the handle slightly in for an elegant look */
+    border-radius: 10px !important;            /* Smoothly rounded edges */
+}
+
+/* Highlight the handle with your brand red when a user hovers over it */
+html::-webkit-scrollbar-thumb:hover {
+    background-color: #ff385c !important; 
+    background-clip: padding-box !important;
+}

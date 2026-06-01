@@ -1,0 +1,118 @@
+<% layout("/layouts/boilerplate") %>
+
+    <div class="row justify-content-center add-listing-form mb-3 mt-2">
+        <div class="col-md-10 col-lg-8 col-11">
+            <h3 class="mb-4 d-flex">
+                <div><a href="/listings/<%= listing._id %>"><i class="fa-solid fa-angle-left"></i></a></div>
+                <div>Edit Your Listing</div>
+            </h3>
+            <form method="post" action="/listings/<%= listing._id %>?_method=PUT" novalidate class="needs-validation"
+                enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label for="title" class="form-label">Title</label>
+                    <input type="text" value="<%= listing.title %>" name="listing[title]" class="form-control" required>
+                    <div class="invalid-feedback">Please enter a title</div>
+                    <div class="valid-feedback">Title looks good!</div>
+                </div>
+
+                <!-- category -->
+                <div class="mb-3">
+                    <label class="form-label category-label">Category</label>
+
+                    <div class="dropdown w-100">
+                        <button class="btn category-dropdown-btn dropdown-toggle w-100 text-start" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" id="categoryBtn">
+                            <% const emojiMap={ "Rooms" : "🛏️ Rooms" , "Iconic Cities" : "🏙️ Iconic Cities"
+                                , "Mountains" : "⛰️ Mountains" , "Castles" : "🏰 Castles" , "Amazing Pools"
+                                : "🏊 Amazing Pools" , "Camping" : "🏕️ Camping" , "Farms" : "🚜 Farms" , "Arctic"
+                                : "❄️ Arctic" , "Others" : "🌐 Others" }; %>
+                                <%= emojiMap[listing.category] || "🌍 Select Category" %>
+                        </button>
+
+                        <input type="hidden" value="<%= listing.category %>" name="listing[category]"
+                            id="selectedCategory" required>
+
+                        <ul class="dropdown-menu category-dropdown-menu w-100">
+                            <li><a class="dropdown-item category-item" href="#" data-value="Rooms">🛏️ Rooms</a></li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Iconic Cities">🏙️ Iconic
+                                    Cities</a></li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Mountains">⛰️ Mountains</a>
+                            </li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Castles">🏰 Castles</a></li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Amazing Pools">🏊 Amazing
+                                    Pools</a></li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Camping">🏕️ Camping</a>
+                            </li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Farms">🚜 Farms</a></li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Arctic">❄️ Arctic</a></li>
+                            <li><a class="dropdown-item category-item" href="#" data-value="Others">🌐 Others</a></li>
+                        </ul>
+
+                        <div class="invalid-feedback">Please select a category</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="listing[description]" class="form-control"
+                        required><%= listing.description %></textarea>
+                    <div class="invalid-feedback">Please enter a short description</div>
+                </div>
+
+
+
+                <div class="mb-3">
+
+                    <label for="image" class="form-label">Update Listing Image (Optional)</label>
+
+                    <div class="mb-3">
+                        <p class="mb-1 small text-muted">Current Image</p>
+                        <img src="<%= descaledImageUrl %>" alt="Original Listing Image"
+                            class="edit-form-image img-thumbnail p-0">
+                    </div>
+
+                    <input type="file" name="listing[image]" class="form-control">
+                </div>
+
+                <!-- <div class="mb-3">
+                    <label for="image" class="form-label">Update Listing Image (Optional)</label>
+
+                    <% if (listing.image && listing.image.url) { %>
+                        <div class="mb-3 mt-2">
+                            <p class="text-muted small mb-1">Current Image:</p>
+                            <img src="<%= descaledImageUrl %>" alt="Original Listing Image" class="edit-form-image img-thumbnail">
+                        </div>
+                        <% } %>
+
+                            <input type="file" name="listing[image]" class="form-control" id="image">
+                </div> -->
+
+                <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label for="price" class="form-label">Price</label>
+                        <input type="number" value="<%= listing.price %>" name="listing[price]" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Price should be valid</div>
+                    </div>
+
+                    <div class="mb-3 col-md-8">
+                        <label for="country" class="form-label">Country</label>
+                        <input type="text" value="<%= listing.country %>" name="listing[country]" class="form-control"
+                            required>
+                        <div class="invalid-feedback">Country name should be valid</div>
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" value="<%= listing.location %>" name="listing[location]" class="form-control"
+                        required>
+                    <div class="invalid-feedback">Location should be valid</div>
+                </div>
+
+                <button class="btn red-btn edit-btn">Edit</button>
+            </form>
+        </div>
+    </div>
+    <script src="/js/script.js"></script>

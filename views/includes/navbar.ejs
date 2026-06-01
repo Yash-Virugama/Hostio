@@ -1,0 +1,108 @@
+<!-- <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+
+    <div class="container-fluid">
+
+        <a href="/listings" class="navbar-brand ms-2"><i class="fa-regular fa-compass"></i></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+
+
+
+<!-- search-bar -->
+<!-- <% if (typeof currentPath !=='undefined' && currentPath==='/listings' ) { %>
+
+            <div class="navbar-nav">
+                <form class="d-flex position-relative" role="search" action="/listings" method="get" autocomplete="off">
+                    <div class="position-relative">
+                        <input class="form-control me-2 search-inp" type="search" placeholder="Search destinations"
+                            name="search" id="navSearchInput">
+
+                        <div id="searchSuggestionsWrapper" class="dropdown-menu w-100 shadow-sm mt-1"
+                            style="display: none; position: absolute; max-height: 280px; background-color: #ffffff; border-radius: 16px; overflow: hidden; z-index: 1000;">
+
+                            <div id="suggestionsInnerScroll"
+                                style="max-height: 260px; overflow-y: auto; padding: 10px 0;">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn red-btn search-btn ms-2" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i> Search
+                    </button>
+                </form>
+            </div>
+            <% } %>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">  
+            </div>
+            </div>
+
+                <div class="navbar-nav ms-auto">
+
+                    <a class="nav-link" href="/listings">Explore</a>
+
+                    <a class="nav-link" href="/listings/new">Hostio It</a>
+                    <% if(!currentUser){ %>
+
+                        <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+                        <a class="nav-link" href="/login"><b>Log In</b></a>
+
+                        <% } else { %>
+                            <a class="nav-link" href="/logout"><b>Log Out</b></a>
+                            <% } %>
+                </div>
+    </div>
+    </div>
+</nav> -->
+
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+
+        <a href="/listings" class="navbar-brand ms-2"><i class="fa-regular fa-compass"></i></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <i class="fa-solid fa-outdent"></i>
+        </button>
+
+        <% if (typeof currentPath !=='undefined' && currentPath==='/listings' ) { %>
+            <div class="navbar-nav">
+                <form class="d-flex align-items-center desktop-search-form" role="search" action="/listings" method="get"
+                    autocomplete="off">
+
+                    <div class="position-relative flex-grow-1 search-wrapper-div">
+                        <input class="form-control search-inp" type="search" placeholder="Search destinations"
+                            name="search" id="navSearchInput">
+
+                        <div id="searchSuggestionsWrapper" class="dropdown-menu w-100 shadow-sm">
+                            <div id="suggestionsInnerScroll">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn red-btn search-btn ms-2" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i> <span class="search-btn-text">Search</span>
+                    </button>
+
+                </form>
+            </div>
+            <% } %>
+
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav ms-auto">
+                        <a class="nav-link" href="/listings">Explore</a>
+                        <a class="nav-link" href="/listings/new">Hostio It</a>
+
+                        <% if(!currentUser){ %>
+                            <a class="nav-link" href="/signup"><b>Sign Up</b></a>
+                            <a class="nav-link" href="/login"><b>Log In</b></a>
+                            <% } else { %>
+                                <a class="nav-link" href="/logout"
+                                    onclick="sessionStorage.removeItem('taxDisplayState');"><b>Log Out</b></a>
+                                <% } %>
+                    </div>
+                </div>
+
+    </div>
+</nav>
