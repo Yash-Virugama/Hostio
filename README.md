@@ -267,7 +267,9 @@ Feel free to fork the repository and submit a Pull Request.
 
 GitHub: https://github.com/Yash-Virugama
 
-LinkedIn: *(Add your profile)*
+LinkedIn: https://linkedin.com/in/yashvirugama
+
+Email: virugamayash25@gmail.com
 
 ---
 
